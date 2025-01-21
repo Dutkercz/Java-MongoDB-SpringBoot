@@ -6,7 +6,9 @@ import Dev_2025.Dev_2025_Project_Mongo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -36,5 +38,13 @@ public class UserResource {
             System.out.println("Error. User not find.");
         }
         return ResponseEntity.ok().body(new UserDTO(u));
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> insert (@RequestBody  UserDTO odto){
+        User o = service.fromDto(odto);
+        o = service.insert(o);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(o.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }

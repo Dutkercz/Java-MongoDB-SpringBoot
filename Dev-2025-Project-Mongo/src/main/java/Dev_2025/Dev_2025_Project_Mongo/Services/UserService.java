@@ -1,5 +1,6 @@
 package Dev_2025.Dev_2025_Project_Mongo.Services;
 
+import Dev_2025.Dev_2025_Project_Mongo.DTO.UserDTO;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.User;
 import Dev_2025.Dev_2025_Project_Mongo.Repositories.UserRepository;
 import Dev_2025.Dev_2025_Project_Mongo.Services.Exception.ObjectNotFoundException;
@@ -22,6 +23,13 @@ public class UserService {
     public User findById(String id){
         Optional<User> userAux = userRepository.findById(id);
         return userAux.orElseThrow(() -> new ObjectNotFoundException("User not found."));
+    }
+    public User insert (User o){
+        return userRepository.insert(o);
+    }
+
+    public User fromDto(UserDTO odto){
+        return new User(odto.getId(), odto.getName(), odto.getEmail());
     }
 
 }
