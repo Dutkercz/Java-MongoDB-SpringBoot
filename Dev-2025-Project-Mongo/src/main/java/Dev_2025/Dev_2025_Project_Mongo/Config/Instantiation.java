@@ -1,5 +1,6 @@
 package Dev_2025.Dev_2025_Project_Mongo.Config;
 
+import Dev_2025.Dev_2025_Project_Mongo.DTO.AuthorDTO;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.Post;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.User;
 import Dev_2025.Dev_2025_Project_Mongo.Repositories.PostRepository;
@@ -36,8 +37,8 @@ public class Instantiation implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
-        Post post1 = new Post(null, simpleDateFormat.parse("10/01/2025"), "Partiu Mudança", "Estou me mudando para SM! abraços", maria);
-        Post post2 = new Post(null, simpleDateFormat.parse("01/01/2025"), "Feliz ano novo", "Muitas paz e sucesso a todos!", maria );
+        Post post1 = new Post(null, simpleDateFormat.parse("10/01/2025"), "Partiu Mudança", "Estou me mudando para SM! abraços", new AuthorDTO(maria));
+        Post post2 = new Post(null, simpleDateFormat.parse("01/01/2025"), "Feliz ano novo", "Muitas paz e sucesso a todos!", new AuthorDTO(maria) );
 
         postRepository.saveAll(Arrays.asList(post1, post2));
 
