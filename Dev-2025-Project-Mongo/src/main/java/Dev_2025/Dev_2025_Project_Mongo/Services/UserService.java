@@ -6,6 +6,7 @@ import Dev_2025.Dev_2025_Project_Mongo.Repositories.UserRepository;
 import Dev_2025.Dev_2025_Project_Mongo.Services.Exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,16 @@ public class UserService {
         return new User(odto.getId(), odto.getName(), odto.getEmail());
     }
 
+    public User update (User o){
+        User newObj = findById(o.getId());
+        updateData(newObj, o);
+        return userRepository.save(newObj);
+    }
+
+    private void updateData(User newUser, User user) {
+        newUser.setName(user.getName());
+        newUser.setEmail(user.getEmail());
+    }
 
 
 }
