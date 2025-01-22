@@ -1,12 +1,15 @@
 package Dev_2025.Dev_2025_Project_Mongo.Domain;
 
 import Dev_2025.Dev_2025_Project_Mongo.DTO.AuthorDTO;
+import Dev_2025.Dev_2025_Project_Mongo.DTO.CommentsDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Document
@@ -22,6 +25,8 @@ public class Post implements Serializable {
     private String body;
 
     private AuthorDTO author;
+
+    private List<CommentsDTO> comments = new ArrayList<>();
 
     public Post() {
     }
@@ -72,6 +77,14 @@ public class Post implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentsDTO> getComents() {
+        return comments;
+    }
+
+    public void setComents(List<CommentsDTO> coments) {
+        this.comments = coments;
     }
 
     @Override
