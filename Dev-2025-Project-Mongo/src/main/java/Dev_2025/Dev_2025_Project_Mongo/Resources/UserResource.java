@@ -3,6 +3,7 @@ package Dev_2025.Dev_2025_Project_Mongo.Resources;
 import Dev_2025.Dev_2025_Project_Mongo.DTO.UserDTO;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.Post;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.User;
+import Dev_2025.Dev_2025_Project_Mongo.Resources.exceptions.StandardErrorException;
 import Dev_2025.Dev_2025_Project_Mongo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

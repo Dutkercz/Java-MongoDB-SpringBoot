@@ -1,4 +1,4 @@
-package Dev_2025.Dev_2025_Project_Mongo.Resources;
+package Dev_2025.Dev_2025_Project_Mongo.Resources.exceptions;
 
 import java.io.Serial;
 

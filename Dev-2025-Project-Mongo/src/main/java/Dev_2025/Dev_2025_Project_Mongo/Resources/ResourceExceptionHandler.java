@@ -1,5 +1,6 @@
 package Dev_2025.Dev_2025_Project_Mongo.Resources;
 
+import Dev_2025.Dev_2025_Project_Mongo.Resources.exceptions.StandardErrorException;
 import Dev_2025.Dev_2025_Project_Mongo.Services.Exception.ObjectNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
