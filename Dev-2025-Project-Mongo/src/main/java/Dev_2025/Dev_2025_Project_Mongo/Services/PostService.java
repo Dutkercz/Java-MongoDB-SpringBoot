@@ -7,6 +7,8 @@ import Dev_2025.Dev_2025_Project_Mongo.Services.Exception.ObjectNotFoundExceptio
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,11 +24,17 @@ public class PostService {
         return post.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
-    /*public List<Post> findByTitle (String text){
+    public List<Post> findByTitle (String text){
         return postRepository.findByTitleContainingIgnoreCase(text);
-    }*/
-    public List<Post> findByTitle (String text) {
+    }
+
+    public List<Post> searchByTitle (String text) {
         return postRepository.searchByTitle(text);
+    }
+
+    public List<Post> fullSearch (String s, Date minDate, Date maxDate){
+        maxDate = new Date(maxDate.getTime()+ 24 * 60 * 60 * 1000); //calculo para considerar as 24h do dia em questão.
+        return postRepository.fullSearch(s, minDate, maxDate);
     }
 
 }
