@@ -1,6 +1,7 @@
 package Dev_2025.Dev_2025_Project_Mongo.Resources;
 
 import Dev_2025.Dev_2025_Project_Mongo.DTO.UserDTO;
+import Dev_2025.Dev_2025_Project_Mongo.Domain.Post;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.User;
 import Dev_2025.Dev_2025_Project_Mongo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserResource {
     private UserService service;
 
     //@RequestMapping(method = RequestMethod.GET) << pode usar esse methodo para especificar
-    // o endpoint rest do caminha (/users)
+    // o endpoint rest do caminho (/users)
     @GetMapping
     public ResponseEntity <List<UserDTO>> findAll(){
         List<User> user = service.findAll();
@@ -58,7 +59,13 @@ public class UserResource {
     public ResponseEntity<Void> update (@RequestBody  UserDTO odto, @PathVariable String id) {
         User o = service.fromDto(odto);
         o.setId(id);
-        o = service.update(o);
+        service.update(o);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    private ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User o = service.findById(id);
+        return ResponseEntity.ok().body(o.getPosts());
     }
 }

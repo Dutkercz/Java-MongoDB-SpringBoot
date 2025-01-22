@@ -1,6 +1,7 @@
 package Dev_2025.Dev_2025_Project_Mongo.Services;
 
 import Dev_2025.Dev_2025_Project_Mongo.DTO.UserDTO;
+import Dev_2025.Dev_2025_Project_Mongo.Domain.Post;
 import Dev_2025.Dev_2025_Project_Mongo.Domain.User;
 import Dev_2025.Dev_2025_Project_Mongo.Repositories.UserRepository;
 import Dev_2025.Dev_2025_Project_Mongo.Services.Exception.ObjectNotFoundException;

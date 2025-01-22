@@ -23,7 +23,7 @@ public class Post implements Serializable {
 
     private AuthorDTO author;
 
-    public Post(AuthorDTO author) {
+    public Post() {
     }
 
     public Post(String id, Date date, String title, String body, AuthorDTO author) {

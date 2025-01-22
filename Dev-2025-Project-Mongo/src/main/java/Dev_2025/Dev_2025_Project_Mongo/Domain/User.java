@@ -20,7 +20,7 @@ public class User implements Serializable {
     private String name;
     private String email;
 
-    @DBRef(lazy = true) //não carrega os post ao invocar o User, a não ser que seja explicitamente requerido.
+    @DBRef(lazy = true)//não carrega os post ao invocar o User, a não ser que seja explicitamente requerido.
     private List<Post> posts = new ArrayList<>();
 
     public User() {
